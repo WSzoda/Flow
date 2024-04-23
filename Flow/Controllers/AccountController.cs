@@ -1,5 +1,4 @@
-﻿using Flow.Contracts.Dtos.Account;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flow.Controllers

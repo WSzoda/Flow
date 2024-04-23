@@ -15,5 +15,7 @@ namespace Flow.Infrastracture.Entities
         public string Email { get; set; } = string.Empty;
         public string BankAccountNumber { get; set; } = string.Empty;
         public Address? Address { get; set; }
+        public long ShopStateId { get; set; }
+        public ShopState ShopState { get; set; } = null!;
     }
 }
