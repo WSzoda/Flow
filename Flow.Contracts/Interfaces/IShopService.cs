@@ -10,6 +10,6 @@ namespace Flow.Contracts.Interfaces
 {
     public interface IShopService
     {
-        IEnumerable<ShopDto> GetAllShops();
+        Task<IEnumerable<ShopDto>> GetAllShops();
     }
 }

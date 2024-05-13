@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,8 @@ namespace Flow.Infrastracture.Entities
         public Address? Address { get; set; }
         public long ShopStateId { get; set; }
         public ShopState ShopState { get; set; } = null!;
+        public long OwnerId { get; set; }
+        public IdentityUser Owner { get; set; } = null!;
+        public List<IdentityUser> Workers { get; set; } = new List<IdentityUser>();
     }
 }

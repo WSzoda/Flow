@@ -10,8 +10,10 @@ namespace Flow.Infrastracture.Repositories
 {
     public interface IShopRepository
     {
-        Task<IEnumerable<Shop>> GetShops();
-        Task<Shop> GetShopWithId(long shopId);
-        Task AddShop(AddShopDto shopDto);
+        Task<List<Shop>> GetShopsAsync();
+        Task<Shop> GetShopWithIdAsync(long shopId);
+        Task AddShopAsync(Shop shopDto);
+        Task DeleteShopAsync(long shopId);
+        Task UpdateShopAsync(Shop shopDto);
     }
 }

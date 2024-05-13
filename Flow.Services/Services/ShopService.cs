@@ -1,5 +1,6 @@
 ﻿using Flow.Contracts.Dtos.Shop;
 using Flow.Contracts.Interfaces;
+using Flow.Infrastracture.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,17 @@ namespace Flow.Services.Services
 {
     public class ShopService : IShopService
     {
-        public IEnumerable<ShopDto> GetAllShops()
+        private readonly IShopRepository _shopRepository;
+
+        public ShopService(IShopRepository shopRepository)
         {
-            throw new NotImplementedException();
+            _shopRepository = shopRepository;
+        }
+
+        public async Task<List<ShopDto>> GetAllShops()
+        {
+            var shops = await _shopRepository.GetShopsAsync();
+            return shops;
         }
     }
 }
