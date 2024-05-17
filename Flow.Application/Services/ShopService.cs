@@ -1,13 +1,10 @@
-﻿using Flow.Contracts.Dtos.Shop;
-using Flow.Contracts.Interfaces;
-using Flow.Infrastracture.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Flow.Core.DTOs.Request.Shop;
+using Flow.Core.Entities;
+using Flow.Core.Interfaces.Repositories;
+using Flow.Core.Interfaces.Services;
+using Microsoft.EntityFrameworkCore;
 
-namespace Flow.Services.Services
+namespace Flow.Application.Services
 {
     public class ShopService : IShopService
     {
@@ -18,10 +15,15 @@ namespace Flow.Services.Services
             _shopRepository = shopRepository;
         }
 
-        public async Task<List<ShopDto>> GetAllShops()
+        public async Task<List<Shop>> GetAllShops()
         {
-            var shops = await _shopRepository.GetShopsAsync();
-            return shops;
+            var shops =  _shopRepository.GetAllShops();
+            return await shops.ToListAsync();
+        }
+
+        public Task<Shop> AddNewShop(ShopDto shopDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

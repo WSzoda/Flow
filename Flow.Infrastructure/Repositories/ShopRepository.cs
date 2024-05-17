@@ -1,14 +1,10 @@
-﻿using Flow.Contracts.Dtos.Shop;
-using Flow.Infrastracture.Entities;
-using Flow.Infrastracture.Repositories;
+﻿using System.Collections;
+using Flow.Core.Entities;
+using Flow.Core.Interfaces.Repositories;
+using Flow.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Flow.DataAccess.Repositories
+namespace Flow.Infrastructure.Repositories
 {
     public class ShopRepository : IShopRepository
     {
@@ -35,9 +31,9 @@ namespace Flow.DataAccess.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Shop>> GetShopsAsync()
+        public IQueryable<Shop> GetAllShops()
         {
-            var shops = await _context.Shops.AsNoTracking().ToListAsync();
+            var shops =  _context.Shops.AsNoTracking().AsQueryable();
             return shops;
         }
 

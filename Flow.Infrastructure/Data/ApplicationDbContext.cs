@@ -1,8 +1,8 @@
-﻿using Flow.Infrastracture.Entities;
+﻿using Flow.Core.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Flow.DataAccess
+namespace Flow.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

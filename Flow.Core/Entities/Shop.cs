@@ -15,7 +15,8 @@ namespace Flow.Core.Entities
         public string PhoneNumber { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string BankAccountNumber { get; set; } = string.Empty;
-        public Address? Address { get; set; }
+        public long AddressId { get; set; }
+        public Address Address { get; set; } = null!;
         public long ShopStateId { get; set; }
         public ShopState ShopState { get; set; } = null!;
         public long OwnerId { get; set; }

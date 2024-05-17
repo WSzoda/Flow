@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flow", "Flow\Flow.csproj", "{9C4B4A20-A28C-44F0-B14D-237554C6FB17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flow.Infrastracture", "Flow.Infrastracture\Flow.Infrastracture.csproj", "{8E74DCFF-6E50-47DF-AD9E-E3D6BFF2C657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flow.Infrastructure", "Flow.Infrastructure\Flow.Infrastructure.csproj", "{8E74DCFF-6E50-47DF-AD9E-E3D6BFF2C657}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flow.Application", "Flow.Application\Flow.Application.csproj", "{FA4286D8-2E57-442B-AAC1-B4E7F4C7D96A}"
 EndProject

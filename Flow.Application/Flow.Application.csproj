@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Flow.Core\Flow.Core.csproj" />
-    <ProjectReference Include="..\Flow.Infrastracture\Flow.Infrastracture.csproj" />
+    <ProjectReference Include="..\Flow.Infrastructure\Flow.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

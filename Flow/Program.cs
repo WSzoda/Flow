@@ -1,8 +1,8 @@
-using Flow.Contracts.Interfaces;
-using Flow.DataAccess;
-using Flow.DataAccess.Repositories;
-using Flow.Infrastracture.Repositories;
-using Flow.Services.Services;
+using Flow.Application.Services;
+using Flow.Core.Interfaces.Repositories;
+using Flow.Core.Interfaces.Services;
+using Flow.Infrastructure.Data;
+using Flow.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"),
+        x => x.MigrationsAssembly("Flow.Infrastructure"));
 });
 
 builder.Services.AddAuthorization();

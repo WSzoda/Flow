@@ -1,21 +1,23 @@
-﻿using Flow.Contracts.Dtos.Addresses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using Flow.Core.DTOs.Request.Addresses;
 
-namespace Flow.Contracts.Dtos.Shop
+namespace Flow.Core.DTOs.Request.Shop
 {
     public class ShopDto
     {
-        public long Id { get; set; }
+        [Required]
         public string Name { get; set; } = string.Empty;
+        [Required]
         public string VatNumber { get; set; } = string.Empty;
+        [Required]
         public string PhoneNumber { get; set; } = string.Empty;
+        [Required]
         public string Email { get; set; } = string.Empty;
+        [Required]
         public string BankAccountNumber { get; set; } = string.Empty;
+        [Required]
         public AddressDto Address { get; set; } = null!;
+        [Required]
+        public long OwnerId { get; set; }
     }
 }

@@ -24,11 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Flow.Application\Flow.Application.csproj" />
     <ProjectReference Include="..\Flow.Core\Flow.Core.csproj" />
-    <ProjectReference Include="..\Flow.Infrastracture\Flow.Infrastracture.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
+    <ProjectReference Include="..\Flow.Infrastructure\Flow.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

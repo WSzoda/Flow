@@ -1,4 +1,6 @@
-﻿using Flow.Services.Services;
+﻿using Flow.Core.DTOs.Request.Shop;
+using Flow.Core.DTOs.Response;
+using Flow.Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flow.Controllers
@@ -15,10 +17,24 @@ namespace Flow.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetShops()
+        public async Task<ActionResult<ApiResponse>> GetShops()
         {
             var shops = await _shopService.GetAllShops();
-            return Ok();
+            return Ok(new ApiResponse {IsSuccessful = true, Data = shops});
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ApiResponse>> AddShop([FromBody] ShopDto shopDto)
+        {
+            try
+            {
+                var response = await _shopService.AddNewShop(shopDto);
+                return Ok(new ApiResponse { IsSuccessful = true, Data = response});
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse {IsSuccessful = false, Data = ex.Message});
+            }
         }
     }
 }
