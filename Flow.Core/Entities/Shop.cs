@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flow.Infrastracture.Entities
+namespace Flow.Core.Entities
 {
     public class Shop
     {

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Flow.Contracts\Flow.Contracts.csproj" />
+    <ProjectReference Include="..\Flow.Core\Flow.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,9 +7,9 @@ namespace Flow.Controllers
     [Route("shops")]
     public class ShopController : ControllerBase
     {
-        private readonly ShopService _shopService;
+        private readonly IShopService _shopService;
 
-        public ShopController(ShopService shopService)
+        public ShopController(IShopService shopService)
         {
             _shopService = shopService;
         }

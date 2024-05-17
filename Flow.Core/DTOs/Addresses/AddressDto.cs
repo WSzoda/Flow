@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flow.Infrastracture.Entities
+namespace Flow.Contracts.Dtos.Addresses
 {
-    public class Address
+    public class AddressDto
     {
         public long Id { get; set; }
         public string Longitude { get; set; } = string.Empty;
@@ -17,9 +17,5 @@ namespace Flow.Infrastracture.Entities
         public string State { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
         public string Country { get; set; } = string.Empty;
-
-        public long ShopId {  get; set; }
-        public Shop Shop = null!;
-
     }
 }

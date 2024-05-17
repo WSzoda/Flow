@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flow.Infrastracture.Repositories
+namespace Flow.Core.Interfaces.Repositories
 {
     public interface IShopRepository
     {

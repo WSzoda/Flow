@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Flow.Infrastracture\Flow.Infrastracture.csproj" />
+    <Folder Include="Specifications\" />
   </ItemGroup>
 
 </Project>
