@@ -9,10 +9,12 @@ namespace Flow.Application.Services
     public class ShopService : IShopService
     {
         private readonly IShopRepository _shopRepository;
+        // private readonly IAddressService _addressService;
 
         public ShopService(IShopRepository shopRepository)
         {
             _shopRepository = shopRepository;
+            // _addressService = addressService;
         }
 
         public async Task<List<Shop>> GetAllShops()
@@ -21,9 +23,23 @@ namespace Flow.Application.Services
             return await shops.ToListAsync();
         }
 
-        public Task<Shop> AddNewShop(ShopDto shopDto)
+        public async Task<Shop> AddNewShop(ShopDto shopDto)
         {
-            throw new NotImplementedException();
+            // var address = await _addressService.CreateAddress(shopDto.Address);
+            // Console.WriteLine(address);
+
+            Shop shop = new Shop
+            {
+                Address = new Address(),
+                Email = shopDto.Email,
+                Name = shopDto.Name,
+                AddressId = 1,
+                PhoneNumber = shopDto.PhoneNumber,
+                VatNumber = shopDto.VatNumber,
+                BankAccountNumber = shopDto.BankAccountNumber
+            };
+
+            return shop;
         }
     }
 }

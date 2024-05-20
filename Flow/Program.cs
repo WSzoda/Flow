@@ -11,9 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"),
-        x => x.MigrationsAssembly("Flow.Infrastructure"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<IShopRepository, ShopRepository>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+
+builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<IShopService, ShopService>();
 
 builder.Services.AddAuthorization();
 
@@ -23,9 +31,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
 
 builder.Services.AddCors(options =>
 {
@@ -34,10 +39,6 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
-
-builder.Services.AddScoped<IShopRepository, ShopRepository>();
-
-builder.Services.AddScoped<IShopService, ShopService>();
 
 var app = builder.Build();
 
