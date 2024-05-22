@@ -1,5 +1,6 @@
 ﻿using Flow.Core.DTOs.Request.Addresses;
 using Flow.Core.Entities;
+using Flow.Core.Interfaces.Repositories;
 using Flow.Core.Interfaces.Services;
 using Flow.Infrastructure.Repositories;
 
@@ -7,9 +8,9 @@ namespace Flow.Application.Services;
 
 public class AddressService : IAddressService
 {
-    private readonly AddressRepository _addressRepository;
+    private readonly IAddressRepository _addressRepository;
 
-    public AddressService(AddressRepository addressRepository)
+    public AddressService(IAddressRepository addressRepository)
     {
         _addressRepository = addressRepository;
     }

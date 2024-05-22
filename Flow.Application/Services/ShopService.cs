@@ -9,12 +9,12 @@ namespace Flow.Application.Services
     public class ShopService : IShopService
     {
         private readonly IShopRepository _shopRepository;
-        // private readonly IAddressService _addressService;
+        private readonly IAddressService _addressService;
 
-        public ShopService(IShopRepository shopRepository)
+        public ShopService(IShopRepository shopRepository, IAddressService addressService)
         {
             _shopRepository = shopRepository;
-            // _addressService = addressService;
+            _addressService = addressService;
         }
 
         public async Task<List<Shop>> GetAllShops()
