@@ -13,6 +13,6 @@ namespace Flow.Core.Interfaces.Services
     {
         Task<List<Shop>> GetAllShops();
 
-        Task<Shop> AddNewShop(ShopDto shopDto);
+        Shop AddNewShop(ShopDto shopDto);
     }
 }

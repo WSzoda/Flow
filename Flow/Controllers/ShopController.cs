@@ -28,7 +28,7 @@ namespace Flow.Controllers
         {
             try
             {
-                var response = await _shopService.AddNewShop(shopDto);
+                var response = _shopService.AddNewShop(shopDto);
                 return Ok(new ApiResponse { IsSuccessful = true, Data = response});
             }
             catch (Exception ex)
