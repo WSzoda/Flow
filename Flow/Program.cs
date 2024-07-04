@@ -19,6 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var googleApiKey = builder.Configuration.GetValue<string>("ApiKeys:Google");
 
 builder.Services.AddScoped<IShopRepository, ShopRepository>();

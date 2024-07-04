@@ -24,7 +24,7 @@ namespace Flow.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ApiResponse>> AddShop([FromBody] ShopDto shopDto)
+        public async Task<ActionResult<ApiResponse>> AddShop([FromBody] ShopReqDto shopDto)
         {
             try
             {
