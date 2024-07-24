@@ -3,7 +3,7 @@ using Flow.Core.DTOs.Request.Addresses;
 
 namespace Flow.Core.DTOs.Request.Shop
 {
-    public class ShopDto
+    public class ShopReqDto
     {
         [Required]
         public string Name { get; set; } = string.Empty;

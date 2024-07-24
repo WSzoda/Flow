@@ -8,20 +8,23 @@ namespace Flow.Application.Services;
 
 public class AddressService : IAddressService
 {
-  private readonly IAddressRepository _addressRepository;
+    private readonly IAddressRepository _addressRepository;
 
-  public AddressService(IAddressRepository addressRepository)
+    public AddressService(IAddressRepository addressRepository)
     {
         _addressRepository = addressRepository;
     }
 
-
-  public Address CreateAddress(AddressDto addressDto)
+    public async Task<Address> CreateAddress(AddressDto addressDto)
     {
-    //Kod co wysyla zapytanie o long i lat do zewnetrznego api
-    string longitude = "0";
-    string lantitude = "0";
+        Address address = new Address
+        {
+            City = addressDto.City, AddressLine1 = addressDto.AddressLine1, AddressLine2 = addressDto.AddressLine2, Country = addressDto.Country, Latitude = "0",
+            Longitude = "0", State = addressDto.State, PostalCode = addressDto.PostalCode
+        };
 
-    return new Address();
+        await _addressRepository.AddAddressAsync(address);
+        Console.WriteLine(address);
+        return address;
     }
 }
