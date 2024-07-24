@@ -9,9 +9,10 @@ namespace Flow.Infrastructure.Repositories
     public class ShopRepository : IShopRepository
     {
         private readonly ApplicationDbContext _context;
+        
         public ShopRepository(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
         public async Task AddShopAsync(Shop shop)
         {
