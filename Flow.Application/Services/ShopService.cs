@@ -28,15 +28,16 @@ namespace Flow.Application.Services
             // var address = await _addressService.CreateAddress(shopDto.Address);
             // Console.WriteLine(address);
 
+            var address = await _addressService.CreateAddress(shopReqDto.Address);
+
             Shop shop = new Shop
             {
-                Address = new Address(),
-                Email = shopDto.Email,
-                Name = shopDto.Name,
+                Address = address,
+                Email = shopReqDto.Email,
                 AddressId = 1,
-                PhoneNumber = shopDto.PhoneNumber,
-                VatNumber = shopDto.VatNumber,
-                BankAccountNumber = shopDto.BankAccountNumber
+                PhoneNumber = shopReqDto.PhoneNumber,
+                VatNumber = shopReqDto.VatNumber,
+                BankAccountNumber = shopReqDto.BankAccountNumber
             };
 
             return shop;

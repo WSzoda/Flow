@@ -5,5 +5,5 @@ namespace Flow.Core.Interfaces.Services;
 
 public interface IAddressService
 {
-    Address CreateAddress(AddressDto addressDto);
+    Task<Address> CreateAddress(AddressDto addressDto);
 }

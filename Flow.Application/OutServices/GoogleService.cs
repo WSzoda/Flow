@@ -1,4 +1,6 @@
-﻿using Flow.Core.Interfaces.OutServices;
+﻿using System.ComponentModel.DataAnnotations;
+using Flow.Core.DTOs.Request.Addresses;
+using Flow.Core.Interfaces.OutServices;
 
 namespace Flow.Application.OutServices;
 
@@ -9,5 +11,37 @@ public class GoogleService : IGoogleService
     public GoogleService(string apiKey)
     {
         _apiKey = apiKey;
+    }
+
+    public async Task<string> GetCoordinates(AddressDto address) {
+        HttpClient httpClient= new HttpClient();
+
+        string query = "https://maps.googleapis.com/maps/api/geocode/json";
+
+        if(address.AddressLine1.Length != 0){
+            query += "?address=" + address.AddressLine1;
+        }
+        if(address.AddressLine2.Length != 0){
+            query += "," + address.AddressLine2;
+        }
+        if(address.State.Length != 0){
+            query += "," + address.State;
+        }
+        if(address.City.Length != 0){
+            query += "," + address.City;
+        }
+        if(address.Country.Length != 0){
+            query += "," + address.Country;
+        }
+        if(address.PostalCode.Length != 0){
+            query += "," + address.PostalCode;
+        }
+
+        query += "&key=" + _apiKey;
+
+        Uri uri = new Uri(query);
+
+        var response = await httpClient.GetAsync(uri);
+        return await response.Content.ReadAsStringAsync();
     }
 }
