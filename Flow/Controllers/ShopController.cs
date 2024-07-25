@@ -38,7 +38,7 @@ namespace Flow.Controllers
             try
             {
                 string id = HttpContext.User.FindFirstValue("Id")!;
-                var response = await _shopService.AddNewShop(shopDto);
+                var response = await _shopService.AddNewShop(id, shopDto);
                 return Ok(
                     new ApiResponse { IsSuccessful = true, Data = _mapper.Map<ShopDto>(response) }
                 );

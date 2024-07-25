@@ -1,11 +1,10 @@
-﻿using Flow.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Flow.Core.DTOs.Request.Shop;
-
+using Flow.Core.Entities;
 
 namespace Flow.Core.Interfaces.Services
 {
@@ -13,6 +12,6 @@ namespace Flow.Core.Interfaces.Services
     {
         Task<List<Shop>> GetAllShops();
 
-        Task<Shop> AddNewShop(ShopReqDto shopReqDto);
+        Task<Shop> AddNewShop(string userId, ShopReqDto shopReqDto);
     }
 }

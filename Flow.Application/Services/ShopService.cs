@@ -23,10 +23,8 @@ namespace Flow.Application.Services
             return await shops.ToListAsync();
         }
 
-        public async Task<Shop> AddNewShop(ShopReqDto shopReqDto)
+        public async Task<Shop> AddNewShop(string userId, ShopReqDto shopReqDto)
         {
-            // var address = await _addressService.CreateAddress(shopDto.Address);
-            // Console.WriteLine(address);
             try
             {
                 var address = await _addressService.CreateAddress(shopReqDto.Address);
@@ -39,8 +37,11 @@ namespace Flow.Application.Services
                     VatNumber = shopReqDto.VatNumber,
                     Email = shopReqDto.Email,
                     AddressId = address.Id,
+                    OwnerId = userId,
                     ShopStateId = 2,
                 };
+
+                await _shopRepository.AddShopAsync(shop);
 
                 return shop;
             }
