@@ -7,16 +7,25 @@ namespace Flow.Core.DTOs.Request.Shop
     {
         [Required]
         public string Name { get; set; } = string.Empty;
+
+        [Required]
+        public string CompanyName { get; set; } = string.Empty;
+
         [Required]
         public string VatNumber { get; set; } = string.Empty;
+
         [Required]
         public string PhoneNumber { get; set; } = string.Empty;
+
         [Required]
         public string Email { get; set; } = string.Empty;
+
         [Required]
         public string BankAccountNumber { get; set; } = string.Empty;
+
         [Required]
         public AddressDto Address { get; set; } = null!;
+
         [Required]
         public long OwnerId { get; set; }
     }

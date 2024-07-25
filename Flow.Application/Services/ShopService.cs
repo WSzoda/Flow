@@ -19,7 +19,7 @@ namespace Flow.Application.Services
 
         public async Task<List<Shop>> GetAllShops()
         {
-            var shops =  _shopRepository.GetAllShops();
+            var shops = _shopRepository.GetAllShops();
             return await shops.ToListAsync();
         }
 
@@ -27,20 +27,27 @@ namespace Flow.Application.Services
         {
             // var address = await _addressService.CreateAddress(shopDto.Address);
             // Console.WriteLine(address);
-
-            var address = await _addressService.CreateAddress(shopReqDto.Address);
-
-            Shop shop = new Shop
+            try
             {
-                Address = address,
-                Email = shopReqDto.Email,
-                AddressId = 1,
-                PhoneNumber = shopReqDto.PhoneNumber,
-                VatNumber = shopReqDto.VatNumber,
-                BankAccountNumber = shopReqDto.BankAccountNumber
-            };
+                var address = await _addressService.CreateAddress(shopReqDto.Address);
 
-            return shop;
+                Shop shop = new Shop
+                {
+                    BankAccountNumber = shopReqDto.BankAccountNumber,
+                    CompanyName = shopReqDto.CompanyName,
+                    PhoneNumber = shopReqDto.PhoneNumber,
+                    VatNumber = shopReqDto.VatNumber,
+                    Email = shopReqDto.Email,
+                    AddressId = address.Id,
+                    ShopStateId = 2,
+                };
+
+                return shop;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

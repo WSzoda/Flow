@@ -18,8 +18,7 @@ namespace Flow.Core.Entities
         public string PostalCode { get; set; } = string.Empty;
         public string Country { get; set; } = string.Empty;
 
-        public long ShopId {  get; set; }
+        public long ShopId { get; set; }
         public Shop Shop = null!;
-
     }
 }
