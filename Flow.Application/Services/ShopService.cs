@@ -1,4 +1,5 @@
-﻿using Flow.Core.DTOs.Request.Shop;
+﻿using System.Diagnostics;
+using Flow.Core.DTOs.Request.Shop;
 using Flow.Core.Entities;
 using Flow.Core.Interfaces.Repositories;
 using Flow.Core.Interfaces.Services;
@@ -21,6 +22,12 @@ namespace Flow.Application.Services
         {
             var shops = _shopRepository.GetAllShops();
             return await shops.ToListAsync();
+        }
+
+        public async Task<List<Shop>> GetShopsByUserId(string userId) {
+            var shops = _shopRepository.GetAllShops();
+            var userShops = shops.Where(u => u.OwnerId == userId);
+            return await userShops.ToListAsync();
         }
 
         public async Task<Shop> AddNewShop(string userId, ShopReqDto shopReqDto)

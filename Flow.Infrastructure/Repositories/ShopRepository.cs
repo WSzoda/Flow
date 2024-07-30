@@ -34,7 +34,7 @@ namespace Flow.Infrastructure.Repositories
 
         public IQueryable<Shop> GetAllShops()
         {
-            var shops =  _context.Shops.AsNoTracking().AsQueryable();
+            var shops =  _context.Shops.AsNoTracking().Include("Address").AsQueryable();
             return shops;
         }
 

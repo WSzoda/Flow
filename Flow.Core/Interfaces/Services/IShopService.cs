@@ -11,6 +11,7 @@ namespace Flow.Core.Interfaces.Services
     public interface IShopService
     {
         Task<List<Shop>> GetAllShops();
+        Task<List<Shop>> GetShopsByUserId(string userId);
 
         Task<Shop> AddNewShop(string userId, ShopReqDto shopReqDto);
     }
